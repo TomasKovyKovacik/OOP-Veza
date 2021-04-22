@@ -7,11 +7,21 @@ import java.util.HashSet;
 
 public class Maze {
     private static final int MAZE_SIZE = 15;
-
     private Node[][] maze;
 
     public Maze() {
         this.generateMaze();
+    }
+
+    public Node getStartNode() {
+        return this.maze[0][0];
+    }
+
+    public Node getNode(int x, int y) {
+        if (x >= MAZE_SIZE || x < 0 || y >= MAZE_SIZE || y < 0) {
+            return null;
+        }
+        return this.maze[y][x];
     }
 
     public void generateMaze() {
@@ -47,6 +57,7 @@ public class Maze {
                 this.maze[i][j] = new Node(j, i);
             }
         }
+        this.maze[MAZE_SIZE-1][MAZE_SIZE-1].setFinish(true);
         for (int i = 0; i < MAZE_SIZE; i++) {
             for (int j = 0; j < MAZE_SIZE; j++)  {
                 if (i != 0) {
