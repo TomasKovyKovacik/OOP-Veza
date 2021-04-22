@@ -11,6 +11,7 @@ public class Render extends JPanel {
     public Render(Maze maze, Player player) {
         this.maze = maze;
         this.player = player;
+        this.setBackground(Color.CYAN);
     }
 
     @Override
